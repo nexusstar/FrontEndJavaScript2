@@ -57,6 +57,9 @@ function MyLogger(){
     }
 }
 
-function ConsoleLogger(){}
-ConsoleLogger.prototype = new MyLogger();
-ConsoleLogger.constructor = ConsoleLogger;
+function ConsoleLogger(){
+
+}
+ConsoleLogger.prototype = Object.create(MyLogger);
+ConsoleLogger.prototype.constructor = ConsoleLogger;
+
