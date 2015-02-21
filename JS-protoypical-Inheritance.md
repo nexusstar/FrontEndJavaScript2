@@ -1,7 +1,7 @@
 #Constructor function introduction
 
 You can use a function as a constructor to create objects, if the constructor function is named Person then the object(s) created with that constructor are instances of Person.
-
+```javascript
 var Person = function(name){
   this.name = name;
 };
@@ -9,6 +9,7 @@ Person.prototype.walk=function(){
   this.step().step().step();
 };
 var bob = new Person("Bob");
+```
 Person is the constructor function. When you create an instance using Person you have to use the new keyword:
 
 var bob = new Person("Bob");console.log(bob.name);//=Bob

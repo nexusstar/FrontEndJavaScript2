@@ -2,7 +2,6 @@
  * Created by p.nikov on 18.2.2015 г..
  */
 /*
- The interface
  Make an interface, called MyLogger with only 1 method - log(level, message)
  The two arguments should be:
  level - an integer, from 1 to 3.
@@ -44,22 +43,47 @@ if (!Date.prototype.toISOString) {
     }());
 }
 
-function MyLogger(){
-    var _timeStamp = new Date;
-    _timeStamp = _timeStamp.toISOString();
-    var _log_levels = {
+var MyLogger = function(){};
+MyLogger.prototype.getTime = function(){
+    var now = new Date;
+    now = now.toISOString();
+    return now;
+};
+
+MyLogger.prototype.getLevel = function(level){
+    var state = {
         1 : 'INFO',
         2 : 'WARNING',
         3 : 'PLSCHECKFFS'
     };
-    this.log = function(level, message){
-        return _log_levels[level] + '::' + _timeStamp + '::' + message;
-    }
-}
+    return state[level];
+};
 
-function ConsoleLogger(){
+MyLogger.prototype.log = function(level, message){
+    //{LOG_LEVEL_STRING}::{TIMESTAMP}::{MESSAGE}
+    return this.getLevel(level) + '::' + this.getTime() + '::' + message;
+};
 
-}
-ConsoleLogger.prototype = Object.create(MyLogger);
+var ConsoleLogger = function(){};
+ConsoleLogger.prototype = Object.create(MyLogger.prototype);
 ConsoleLogger.prototype.constructor = ConsoleLogger;
+ConsoleLogger.prototype.log = function(level,message){
+    console.log(MyLogger.prototype.log.call(this, level, message));
+};
 
+// make available for nodeunit testing
+exports.ConsoleLogger = ConsoleLogger;
+
+var FileLogger = function(){};
+FileLogger.prototype = Object.create(MyLogger.prototype);
+FileLogger.prototype.constructor = FileLogger;
+
+FileLogger.prototype.log = function(level,message){
+    var fs = require('fs');
+    var logLine = MyLogger.prototype.log.call(this, level, message) + '\n';
+
+    fs.appendFile('fileloger.log', logLine, function (err, data) {
+        if (err) return console.log(err);
+        console.log(data);
+    });
+};
