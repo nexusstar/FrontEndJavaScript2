@@ -3,7 +3,7 @@
  */
 "use strict";
 
-var ConsoleLogger = require('../mylogger').ConsoleLogger;
+var ConsoleLogger = require('../myloggers').ConsoleLogger;
 
 exports.consoleLoggerLevel = function(test){
     var now = new Date;

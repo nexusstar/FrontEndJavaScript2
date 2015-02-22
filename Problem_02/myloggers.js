@@ -16,6 +16,7 @@
  The timestamp should be in ISO 8901 format.
  Make 3 different classes, that implement the interface MyLogger:
  */
+
 "use strict";
 
 //Polyfill from MDN
@@ -71,7 +72,6 @@ ConsoleLogger.prototype.log = function(level,message){
     console.log(MyLogger.prototype.log.call(this, level, message));
 };
 
-exports.ConsoleLogger = new MyLogger(); //TODO: why this is the only working version for export
 
 var FileLogger = function(){};
 FileLogger.prototype = Object.create(MyLogger.prototype);
@@ -86,3 +86,5 @@ FileLogger.prototype.log = function(level,message){
         console.log(data);
     });
 };
+
+exports.ConsoleLogger = new MyLogger(); //?Q!
