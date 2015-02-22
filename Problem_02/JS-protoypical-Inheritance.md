@@ -199,6 +199,7 @@ The constructor property is included in the prototype by JavaScript, you can cha
 
 If after setting prototype part of inheritance you should have it point to the right function again.
 
+```javascript
 var Hamster = function(){};
 var RussionMinni=function(){
    // re use Parent constructor (I know there is none there)
@@ -219,12 +220,14 @@ RussionMinni.prototype.constructor=RussionMinni;
 var littleBetty=betty.haveBaby();
 console.log(littleBetty instanceof RussionMinni);//true
 console.log(littleBetty instanceof Hamster);//true
-"Multiple inheritance" with mix ins
+```
+
+##"Multiple inheritance" with mix ins
 
 Some things are better not to be inherited, if a Cat can move and then a Cat should not inherit from Movable. A Cat is not a Movable but rather a Cat can move. In a class based language Cat would have to implement Movable. In JavaScript we can define Movable and define implementation here, Cat can either override, extend it or us it's default implementation.
 
 For Movable we have instance specific members (like location). And we have members that are not instance specific (like the function move()). Instance specific members will be set by calling mxIns (added by mixin helper function) when creating an instance. Prototype members will be copied one by one on Cat.prototype from Movable.prototype using the mixin helper function.
-
+```javascript
 var Mixin = function Mixin(args){
   if(this.mixIns){
     i=-1;len=this.mixIns.length;
@@ -282,6 +285,8 @@ var poochie = new Cat({
   location: {x:0,y:22}
 });
 poochie.move();
+```
+
 The above is a simple implementation that replaces same named functions with whatever mix in is mixed in last.
 
 The this variable
@@ -292,16 +297,23 @@ The this variable actually refers to the invoking object, it refers to the objec
 
 To clarify see the following code:
 
+```javascript
 theInvokingObject.thefunction();
 The instances where this would refer to the wrong object are usually when attaching event listeners, callbacks or timeouts and intervals. In the next 2 lines of code we pass the function, we don't invoke it. Passing the function is: someObject.aFunction and invoking it is: someObject.aFunction(). The this value does not refer to the object the function was declared on but on the object that invokes it.
 
 setTimeout(someObject.aFuncton,100);//this in aFunction is window
 somebutton.onclick = someObject.aFunction;//this in aFunction is somebutton
+```
+
 To make this in the above cases refer to someObject you can pass a closure instead of the function directly:
 
+```javascript
 setTimeout(function(){someObject.aFuncton();},100);
 somebutton.onclick = function(){someObject.aFunction();};
+```
+
 I like to define functions that return a function for closures on the prototype to have fine control over the variables that are included in the closure scope.
+
 ```javascript
 var Hamster = function(name){
   var largeVariable = new Array(100000).join("Hello World");
