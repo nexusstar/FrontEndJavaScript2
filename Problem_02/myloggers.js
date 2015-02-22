@@ -65,6 +65,12 @@ MyLogger.prototype.log = function(level, message){
     return this.getLevel(level) + '::' + this.getTime() + '::' + message;
 };
 
+/*
+ * ConsoleLogger
+ * log the messages directly to the console.
+ *
+ * */
+
 var ConsoleLogger = function(){};
 ConsoleLogger.prototype = Object.create(MyLogger.prototype);
 ConsoleLogger.prototype.constructor = ConsoleLogger;
@@ -72,6 +78,12 @@ ConsoleLogger.prototype.log = function(level,message){
     console.log(MyLogger.prototype.log.call(this, level, message));
 };
 
+/*
+ * FileLogger
+ * log the messages to a given file..
+ *
+ *  note: log file is hardcoded to filelogger.log
+ * */
 
 var FileLogger = function(){};
 FileLogger.prototype = Object.create(MyLogger.prototype);
@@ -81,10 +93,47 @@ FileLogger.prototype.log = function(level,message){
     var fs = require('fs');
     var logLine = MyLogger.prototype.log.call(this, level, message) + '\n';
 
-    fs.appendFile('fileloger.log', logLine, function (err, data) {
+    fs.appendFile('filelogger.log', logLine, function (err, data) {
         if (err) return console.log(err);
         console.log(data);
     });
 };
 
-exports.ConsoleLogger = new MyLogger(); //?Q!
+/*
+ * HTTPlogger
+ * log the messages to via POST request to a given url ..
+ *
+ *  note: log url is hardcoded to my.url
+ * */
+
+var HTTPLogger = function(){};
+HTTPLogger.prototype = Object.create(MyLogger.prototype);
+HTTPLogger.prototype.constructor = FileLogger;
+
+HTTPLogger.prototype.log = function(level,message){
+
+    var http = require('http');
+
+    var data = MyLogger.prototype.log.call(this, level, message);
+
+    var options =({
+        host: '127.0.0.1',
+        port: 3000,
+        path: '/',
+        method: 'POST',
+        headers:{
+            'Content-Type': 'text/plain',
+            'Content-Length': Buffer.byteLength(data)
+        }
+    });
+
+    var req = http.request(options, function(res) {
+        res.setEncoding('utf8');
+        res.on('data', function (chunk, err) {
+            console.log("body: " + chunk);
+        });
+    });
+
+    req.write(data);
+    req.end();
+};

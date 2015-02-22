@@ -1,3 +1,4 @@
+[Source](http://stackoverflow.com/questions/16063394/prototypical-inheritance-writing-up/16063711#16063711)
 #Constructor function introduction
 
 You can use a function as a constructor to create objects, if the constructor function is named Person then the object(s) created with that constructor are instances of Person.
@@ -11,14 +12,16 @@ Person.prototype.walk=function(){
 var bob = new Person("Bob");
 ```
 Person is the constructor function. When you create an instance using Person you have to use the new keyword:
-
+```javascript
 var bob = new Person("Bob");console.log(bob.name);//=Bob
 var ben = new Person("Ben");console.log(ben.name);//=Ben
+```
 The property/member name is instance specific, it's different for bob and ben
 
 The member walk is part of Person.prototype and is shared for all instances bob and ben are instances of Person so they share the walk member (bob.walk===ben.walk).
-
+```javascript
 bob.walk();ben.walk();
+```
 Because walk() could not be found on bob directly JavaScript will look for it in the Person.prototype as this is the constructor of bob. If it can't be found there it'll look on Object.prototype. This is called the prototype chain. The prototype part of inheritance is done by lengthening this chain; for example bob => Employee.prototype => Person.prototype => Object.prototype (more on inheritance later).
 
 Even though bob, ben and all other created Person instances share walk the function will behave differently per instance because in the walk function it uses this. The value of this will be the invoking object; for now let's say it's the current instance so for bob.walk() "this" will be bob. (more on "this" and the invoking object later).
@@ -38,13 +41,16 @@ An object can inherit from another object through the use if prototype. You can 
 In previous part we have seen that re assignment of members that come from an instance's prototype (ben.walk) will shadow that member (create walk on ben rather than changing Person.prototype.walk).
 
 What if we don't re assign but mutate the member? Mutating is (for example) changing sub properties of an Object or invoking functions that will change the object's value. For example:
-
+```javascript
 var o = [];
 var a = o;
 a.push(11);//mutate a, this will change o
 a[1]=22;//mutate a, this will change o
+```
+
 The following code demonstrates the difference between prototype members and instance members by mutating members.
 
+```javascript
 var person = {
   name:"default",//immutable so can be used as default
   sayName:function(){
@@ -62,6 +68,7 @@ ben.food.push("Hamburger");
 console.log(bob.food);//=["Hamburger"], mutating a shared member on the
 // prototype affects all instances as it changes person.food
 console.log(person.food);//=["Hamburger"]
+```
 The code above shows that ben and bob share members from person. There is only one person, it is set as bob's and ben's prototype (person is used as the first object in the prototype chain to look up requested members that don't exist on the instance). The problem with the above code is that bob and ben should have their own food member. This is where the constructor function comes in. It is used to create instance specific members. You could also pass arguments to it to set values of these instance specific members.
 
 The next code shows another way to implement the constructor function, syntax is different but the idea is the same:
@@ -72,7 +79,7 @@ Create an instance running the code in step 2.
 With constructor functions you'll set the prototype in step 2 in the following code we set the prototype in step 3.
 
 In this code I have removed name from prototype as well as food because you are most likely going to shadow this almost immediately when creating an instance anyway. Name is now an instance specific member with a default value set in the constructor function. Becaus the food member is also moved from prototype to instance specific member it will not affect bob.food when adding food to ben.
-
+```javascript
 var person = {
   sayName:function(){
     console.log("Hello, I am "+this.name);
@@ -91,6 +98,7 @@ var bob = Object.create(person).constructor("Bob");
 console.log(bob.name);//="Bob"
 ben.food.push("Hamburger");
 console.log(bob.food);//=[]
+```
 You may come across similar patterns that are more robust to help with object creation and object definition.
 
 Inheritance
@@ -102,7 +110,7 @@ Set the prototype part of inheritance (RussionMini.prototype = Object.create(Ham
 Define members that can be shared among instances.(Hamster.prototype and RussionMini.prototype)
 Create an instance running the code in step 1 and for objects that inherit have them run the Parent code as well (Hamster.apply(this,arguments);)
 Using a pattern some would call "classical inheritance". If you are confused by the syntax I'll be happy to explain more or provide different patterns.
-
+```javascript
 function Hamster(){
  this.food=[];
 }
@@ -127,7 +135,8 @@ mini.food.push("mini's food");
 //  is Hamster.prototype
 Hamster.prototype.runWheel=function(){console.log("I'm running")};
 mini.runWheel();//=I'm running
-Object.create to set prototype part of inheritance
+```
+##Object.create to set prototype part of inheritance
 
 Here is the documentation about Object.create, it basically returns the second argument (not supported in the polyfil) with the first argument as the returned object's prototype.
 
@@ -144,7 +153,7 @@ Sometimes children need to extend parent functions.
 You want the 'child' (=RussionMini) to do something extra. When RussionMini can call the Hamster code to do something and then do something extra you don't need to copy and paste Hamster code to RussionMini.
 
 In the following example we assume that a Hamster can run 3km an hour but a Russion mini can only run half as fast. We can hard code 3/2 in RussionMini but if this value were to change we have multiple places in code where it needs changing. Here is how we use Hamster.prototype to get the parent (Hamster) speed.
-
+```javascript
 var Hamster = function(name){
  if(name===undefined){
    throw new Error("Name cannot be undefined");
@@ -177,6 +186,7 @@ RussionMini.prototype.getSpeed=function(){
 
 var betty=new RussionMini("Betty");
 console.log(betty.run());//=I am running at 1.5km an hour.
+```
 The disadvantage is that you hard code Hamster.prototype. There may be patterns that will give you the advantage of super as in Java.
 
 Most of the patterns I've seen will either break when inheritance level is more than 2 levels (Child => Parent => GrandParent) or use more resources by implementing super through closures.
@@ -292,7 +302,7 @@ To make this in the above cases refer to someObject you can pass a closure inste
 setTimeout(function(){someObject.aFuncton();},100);
 somebutton.onclick = function(){someObject.aFunction();};
 I like to define functions that return a function for closures on the prototype to have fine control over the variables that are included in the closure scope.
-
+```javascript
 var Hamster = function(name){
   var largeVariable = new Array(100000).join("Hello World");
   // if I do
@@ -315,12 +325,15 @@ Hamster.prototype.checkSleep=function(){
 };
 
 var betty = new Hamster("Betty");
-Passing (constructor) arguments
+```
 
-When Child calls a Parent (Hamster.apply(this,arguments);) we assume that Hamster uses the same arguments as RussionMini in the same order. For functions that call other functions I usually use another way to pass arguments.
+##Passing (constructor) arguments
+
+When Child calls a Parent (Hamster.apply(this,arguments); assume that Hamster uses the same arguments as RussionMini in the same order. For functions that call other functions I usually use another way to pass arguments.
 
 I usually pass one object to a function and have that function mutate whatever it needs (set defaults), then that function will pass it to another function that will do the same and so on and so on. Here is an example:
 
+```javascript
 //helper funciton to throw error
 function thowError(message){
   throw new Error(message)
@@ -344,11 +357,13 @@ var RussionMini = function(args){
 var ben = new RussionMini({name:"Ben"});
 console.log(ben);// Object { type="Russion Mini", name="Ben"}
 var betty = new RussionMini();//Error: args.name is not optional
+```
+
 This way of passing arguments in a function chain is useful in many cases. When you're working on code that would calculate a total of something and later you'd like to re factor the total of that something to be in a certain currency you may have to change a lot of functions to pass the value for currency. You could up scope a currency value (even to global like window.currency='USD') but that's a bad way to solve it.
 
 With passing an object you could add currency to args whenever it's available in the function chain and mutate/use it whenever you need it without changing the other functions (explicitly have to pass it in the function calls).
 
-Private variables
+##Private variables
 
 JavaScript doesn't have a private modifier.
 
@@ -372,6 +387,7 @@ If you still insist on privates then the following pattern may help. It doesn't 
 
  To demonstrate what could go wrong let's introduce an instance specific mutable member called passengers we would like Bus to initialize this so we can't use Jeff's example as that only takes care of the prototype part. Let's use constructor functions but create an instance of Bus for Car.prototype.
 
+```javascript
  var Bus = function Bus(){
    this.passengers=[];
  }
@@ -405,3 +421,4 @@ If you still insist on privates then the following pattern may help. It doesn't 
  var car1 = Car();//works
  var car2 = new Car();//works
  var car3 = Car.create();//works
+ ```
