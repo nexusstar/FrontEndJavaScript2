@@ -71,8 +71,7 @@ ConsoleLogger.prototype.log = function(level,message){
     console.log(MyLogger.prototype.log.call(this, level, message));
 };
 
-// make available for nodeunit testing
-exports.ConsoleLogger = ConsoleLogger;
+exports.ConsoleLogger = new MyLogger(); //TODO: why this is the only working version for export
 
 var FileLogger = function(){};
 FileLogger.prototype = Object.create(MyLogger.prototype);
