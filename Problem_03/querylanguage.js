@@ -21,7 +21,7 @@ form.addEventListener("submit", function(event) {
             sumColumn(queryString[1]);
             break;
         case 'SELECT':
-            selectQuery();
+            selectQuery(queryString);
             break;
         case 'FIND':
             findQuery();
@@ -45,7 +45,7 @@ input.addEventListener("change", function(){
             tableData = this.result.split('\n');
 
             //TODO:remove initial table creation
-            createTable(tableData, tableData.length, tableData[0].split(',').length);
+            //createTable(tableData, tableData.length, tableData[0].split(',').length);
 
         };
         reader.readAsText(file);
@@ -68,7 +68,7 @@ function createTable(_lines, rows, cells){
     }
 }
 
-//TODO: this should not use global
+
 function showQuery(){
     $_("#formTable thead").innerHTML = "";
     createTable(tableData, 1,
@@ -104,4 +104,13 @@ function sumColumn(col){
     }
     $_(".infoBox").innerHTML = '<p class="lead">Nothing to sum in column "' + col + '"!</p>';
     return NaN;
+}
+
+function selectQuery(query){
+
+    if(query.length === 2){
+        query[1].split(',');
+        console.log(query[1].split(','));
+    }
+
 }
