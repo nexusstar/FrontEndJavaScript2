@@ -18,7 +18,7 @@ form.addEventListener("submit", function(event) {
             showQuery();
             break;
         case 'SUM':
-            sumColumn();
+            console.log(sumColumn(queryString[1]));
             break;
         case 'SELECT':
             selectQuery();
@@ -45,7 +45,7 @@ input.addEventListener("change", function(){
             tableData = this.result.split('\n');
 
             //TODO:remove initial table creation
-            createTable(tableData, tableData.length, tableData[0].split(',').length);
+            //createTable(tableData, tableData.length, tableData[0].split(',').length);
 
         };
         reader.readAsText(file);
@@ -72,4 +72,28 @@ function createTable(_lines, rows, cells){
 function showQuery(){
     createTable(tableData, 1,
         tableData[0].split(',').length);
+}
+
+function sumColumn(col){
+    var colIndex
+        ,sum = NaN
+        ,hasNumber = false;
+
+    if (tableData.length > 0){
+        colIndex = tableData[0].indexOf(col);
+        sum = 0;
+        for(var i = 1; i < tableData.length; i++){
+            if(!isNaN(tableData[i][colIndex])){
+                sum += parseInt(tableData[i][colIndex]);
+                hasNumber = true;
+            }
+        }
+    } else{
+        alert('There is no data loaded ...');
+    }
+
+    if(hasNumber){
+        return sum;
+    }
+    return NaN;
 }
