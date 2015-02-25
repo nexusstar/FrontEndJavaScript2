@@ -13,10 +13,21 @@ form.addEventListener("submit", function(event) {
     console.log("Query value", form.elements.query.value);
     var queryString = form.elements.query.value;
     queryString = queryString.split(' ');
-    for(var i = 0,q = queryString.length; i<q; i++ ){
-        if(queryString[i] === 'SHOW'){
-            showQuery()
-        }
+    switch(queryString[0]){
+        case 'SHOW':
+            showQuery();
+            break;
+        case 'SUM':
+            sumColumn();
+            break;
+        case 'SELECT':
+            selectQuery();
+            break;
+        case 'FIND':
+            findQuery();
+            break;
+        default:
+            errorHandler();
     }
     event.preventDefault();
 });
@@ -29,6 +40,7 @@ input.addEventListener("change", function(){
         var reader = new FileReader();
 
         reader.onload = function(){
+
             // By lines
             tableData = this.result.split('\n');
 
@@ -56,6 +68,7 @@ function createTable(_lines, rows, cells){
     }
 }
 
+//TODO: this should not use global
 function showQuery(){
     createTable(tableData, 1,
         tableData[0].split(',').length);
