@@ -18,7 +18,7 @@ form.addEventListener("submit", function(event) {
             showQuery();
             break;
         case 'SUM':
-            console.log(sumColumn(queryString[1]));
+            sumColumn(queryString[1]);
             break;
         case 'SELECT':
             selectQuery();
@@ -45,7 +45,7 @@ input.addEventListener("change", function(){
             tableData = this.result.split('\n');
 
             //TODO:remove initial table creation
-            //createTable(tableData, tableData.length, tableData[0].split(',').length);
+            createTable(tableData, tableData.length, tableData[0].split(',').length);
 
         };
         reader.readAsText(file);
@@ -70,6 +70,7 @@ function createTable(_lines, rows, cells){
 
 //TODO: this should not use global
 function showQuery(){
+    $_("#formTable thead").innerHTML = "";
     createTable(tableData, 1,
         tableData[0].split(',').length);
 }
@@ -81,6 +82,10 @@ function sumColumn(col){
 
     if (tableData.length > 0){
         colIndex = tableData[0].indexOf(col);
+        if(colIndex === -1){
+            $_(".infoBox").innerHTML = '<p class="lead">There is no column "' + col + '" in data</p>';
+            return;
+        }
         sum = 0;
         for(var i = 1; i < tableData.length; i++){
             if(!isNaN(tableData[i][colIndex])){
@@ -89,11 +94,14 @@ function sumColumn(col){
             }
         }
     } else{
-        alert('There is no data loaded ...');
+        $_(".infoBox").innerHTML = '<p class="lead">No data loaded!</p>';
+        return;
     }
 
     if(hasNumber){
+        $_(".infoBox").innerHTML = '<p class="lead">The sum of column "' + col + '" is ' + sum + '</p>';
         return sum;
     }
+    $_(".infoBox").innerHTML = '<p class="lead">Nothing to sum in column "' + col + '"!</p>';
     return NaN;
 }
