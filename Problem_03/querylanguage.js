@@ -1,12 +1,29 @@
 /** * Created by p.nikov on 24.2.2015 г..
  */
-var $ = document.querySelectorAll.bind(document);
+//var $ = document.querySelectorAll.bind(document); //TODO this is not used anywhere
 var $_ = document.querySelector.bind(document);
 var form = $_("form");
 var input = $_('#yourFile');
 var tableHeader = $_("thead");
 var tableBody = $_("tbody");
 var tableData = [];
+
+initApp = (function(app){
+    var $_ = document.querySelector.bind(document);
+    var form;
+
+    app.setForm = function(f){
+        form = $_(f);
+    };
+
+    app.listenOnSubmit = function(el){
+        form.addEventListener(el, function(event){
+            var queryString = form.elements.query.value;
+
+        })
+    }
+
+}({}));
 
 form.addEventListener("submit", function(event) {
     console.log("Query value", form.elements.query.value);
@@ -44,7 +61,7 @@ input.addEventListener("change", function(){
             tableData = this.result.split('\n');
 
             //TODO:remove initial table creation
-            //createTable(tableData, tableData.length, tableData[0].split(',').length);
+            createTable(tableData, tableData.length, tableData[0].split(',').length);
 
         };
         reader.readAsText(file);
