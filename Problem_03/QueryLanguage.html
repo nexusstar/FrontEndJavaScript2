@@ -30,19 +30,19 @@
     </style>
 </head>
 <body>
-<div class="content">
+<div id="queryLanguage" class="content">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div class="well  well-lg loadedFile">No file loaded ...</div>
             <form><!---->
                 <div class="input-group ">
                     <span class="btn btn-primary btn-file">
-                        Choose CSV file <input type="file" id="yourFile">
+                        Choose CSV file <input type="file" class="fileLoad" id="yourFile">
                     </span>
                 </div>
                 <div class="input-group">
                     <span class="input-group-btn">
-                     <button class="btn btn-default" type="submit">Go!</button>
+                     <button class="btn btn-default btn-submit" type="submit">Go!</button>
                   </span>
                     <input type="text" class="form-control" id="formQuery" placeholder="Enter Query..." name="query">
                 </div>
@@ -61,5 +61,8 @@
     </div>
 </div>
 <script src="querylanguage.js"></script>
+<script type="text/javascript">
+    new queryLanguage(  document.getElementById( 'queryLanguage' )  );
+</script>
 </body>
 </html>
