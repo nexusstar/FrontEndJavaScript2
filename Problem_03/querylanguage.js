@@ -1,5 +1,4 @@
-/**
- * Created by p.nikov on 24.2.2015 г..
+/** * Created by p.nikov on 24.2.2015 г..
  */
 var $ = document.querySelectorAll.bind(document);
 var $_ = document.querySelector.bind(document);
@@ -76,9 +75,9 @@ function showQuery(){
 }
 
 function sumColumn(col){
-    var colIndex
-        ,sum = NaN
-        ,hasNumber = false;
+    var colIndex;
+    var sum = NaN;
+    var hasNumber = false;
 
     if (tableData.length > 0){
         colIndex = tableData[0].indexOf(col);
