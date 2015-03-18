@@ -1,0 +1,15 @@
+{
+  "name": "SimpleBlog",
+  "version": "0.0.1",
+  "description": "Simple Blog task",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.3.12",
+    "express": "^4.12.2"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "SimpleBlog",
+  "version": "0.0.1",
+  "description": "Simple Blog task [week1]",
+  "main": "server.js",
+  "keywords": [
+    "HackBulgaria",
+    "SimpleBlog",
+    "Task2"
+  ],
+  "authors": [
+    "NexusStar"
+  ],
+  "license": "MIT",
+  "homepage": "localhost",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
+}

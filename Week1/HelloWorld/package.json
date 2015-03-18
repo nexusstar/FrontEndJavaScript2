@@ -1,0 +1,25 @@
+{
+  "name": "frontend-javascript-2",
+  "version": "0.0.1",
+  "description": "HackBulgaria Front End JavaScript v2.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://NexusStar@bitbucket.org/NexusStar/frontend-javascript-2.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "NexusStar",
+  "license": "MIT",
+  "devDependencies": {
+    "nodeunit": "^0.9.1",
+    "reload": "^0.1.0"
+  },
+  "dependencies": {
+    "express": "^4.12.2"
+  }
+}

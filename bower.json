@@ -1,0 +1,24 @@
+{
+  "name": "frontend-javascript-2",
+  "version": "0.0.1",
+  "description": "Front End JavaScript 2015 Hack Bulgaria",
+  "main": "index.js",
+  "keywords": [
+    "JavaScript",
+    "FrontEnd",
+    "HackBulgaria"
+  ],
+  "authors": [
+    "NexusStar"
+  ],
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/NexusStar/frontend-javascript-2",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
