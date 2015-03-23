@@ -1,0 +1,29 @@
+//
+   Created by nexusstar on 20.03.15.
+
+doctype html
+html
+   head
+      title my jade template
+      link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
+      link(href='css/style.css', rel='stylesheet', type='text/css')
+   body
+      include header.jade
+      div.content
+         div.container
+            include content.jade
+      aside.side-bar
+         div.container
+            nav
+               ul.nav
+                  li.active
+                     a(href='/', target='_self') Home
+                  li
+                     a(href='post', target='_self') PageOne
+                  li
+                     a(href='post', target='_self') PageTwo
+                  li
+                     a(href='post', target='_self') PageThree
+      footer.clearfix
+         div.container
+            p with love from NexusStar
