@@ -1,0 +1,16 @@
+{
+  "name": "consoleCRUD",
+  "version": "0.0.1",
+  "description": "Console CRUD app HB task",
+  "main": "consoleApp.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "NexusStar",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "jsonfile": "^2.0.0",
+    "prompt": "^0.2.14"
+  }
+}
