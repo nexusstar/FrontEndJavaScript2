@@ -1,0 +1,24 @@
+{
+  "name": "JadeBlog",
+  "version": "0.0.1",
+  "description": "JAde Blog task3",
+  "main": "server.js",
+  "keywords": [
+    "Jade",
+    "ExpressJs",
+    "HackBulgaria"
+  ],
+  "authors": [
+    "NexusStar"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
+}
