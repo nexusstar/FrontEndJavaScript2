@@ -1,0 +1,22 @@
+[
+  {
+    "id": 123,
+    "NAME": "Ivan Georgiev",
+    "E-MAIL": "ivan@hackbulgaria.local"
+  },
+  {
+    "id": 124,
+    "NAME": "Georgi Georgiev",
+    "E-MAIL": "ivan@hackbulgaria.local"
+  },
+  {
+    "id": 125,
+    "NAME": "Petar Georgiev",
+    "E-MAIL": "petar@hackbulgaria.local"
+  },
+  {
+    "id": 126,
+    "NAME": "Nikolai Georgiev",
+    "E-MAIL": "ivan@hackbulgaria.local"
+  }
+]
