@@ -1,0 +1,29 @@
+//
+   Created by nexusstar on 14.04.15.
+
+doctype html
+html
+   head
+      title ToDo list with JQuery
+      link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
+      link(href='css/style.css', rel='stylesheet', type='text/css')
+   body
+      div.content
+         div.container
+            h1 todos
+
+            input(
+            type='text'
+            name='todo'
+            placeholder='ToDo item'
+            ).inputBox
+
+            button(class='btn', type='submit')#add Add
+
+         div.list
+             ul
+      footer.clearfix
+         div.container
+      script(src='/lib/jquery/dist/jquery.min.js')
+      script(src='/js/app.js')
+

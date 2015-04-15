@@ -46,3 +46,23 @@ function bfs(graph, start, end) {
   }
 }
 ```
+
+## Testing implementation
+
+To export for testing with `nodeunit` add 
+
+```javascript
+exports.queue = queue
+```
+
+Create test file in test/queue-test.js
+
+```javascript
+var queue = require('../queue').queue;
+```
+
+For continues run on the test 
+
+```javascript
+nodemon -x "nodeunit queue-test.js"
+```

@@ -36,11 +36,14 @@ When using Object.create with 2 arguments, Object.defineProperty or Object.defin
 
 More about prototype
 
-An object can inherit from another object through the use if prototype. You can set the prototype of any object with any other object using Object.create. In the constructor function introduction we have seen that if a member can't be found on the object then JavaScript will look in the prototpe chain for it.
+An object can inherit from another object through the use if prototype. You can set the prototype of any object with any other object using Object.create.
+ In the constructor function introduction we have seen that if a member can't be found on the object then JavaScript will look in the prototpe chain for it.
 
-In previous part we have seen that re assignment of members that come from an instance's prototype (ben.walk) will shadow that member (create walk on ben rather than changing Person.prototype.walk).
+In previous part we have seen that re assignment of members that come from an instance's prototype (ben.walk) will shadow that member 
+(create walk on ben rather than changing Person.prototype.walk).
 
-What if we don't re assign but mutate the member? Mutating is (for example) changing sub properties of an Object or invoking functions that will change the object's value. For example:
+What if we don't re assign but mutate the member? 
+Mutating is (for example) changing sub properties of an Object or invoking functions that will change the object's value. For example:
 ```javascript
 var o = [];
 var a = o;
