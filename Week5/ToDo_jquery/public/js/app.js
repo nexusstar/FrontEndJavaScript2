@@ -6,7 +6,6 @@
 function finishTask(){
 
     $(this).parent().toggleClass('done');
-
 }
 
 $(function() {

@@ -1,0 +1,21 @@
+{
+  "name": "ToDo_jquery",
+  "version": "0.0.1",
+  "description": "ToDo list with jquery",
+  "main": "server.js",
+  "authors": [
+    "NexusStar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}

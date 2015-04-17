@@ -1,0 +1,15 @@
+{
+  "name": "ToDo_jquery",
+  "version": "0.0.1",
+  "description": "JQuery ToDo list",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "NexusStar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3",
+    "jade": "^1.9.2"
+  }
+}
