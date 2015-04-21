@@ -1,0 +1,25 @@
+{
+  "name": "ToDoCrud",
+  "version": "0.0.1",
+  "description": "ToDo Crud HB task",
+  "main": "index.html",
+  "keywords": [
+    "JQuery",
+    "CRUD"
+  ],
+  "authors": [
+    "NexusStar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
