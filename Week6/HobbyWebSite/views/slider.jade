@@ -1,0 +1,16 @@
+div#carousel.carousel.slide( data-ride="carousel")
+    ol.carousel-indicatoros
+        li.active(data-target="#carousel", data-slide-to="0")
+        li(data-target="#carousel", data-slide-to="1")
+        li(data-target="#carousel", data-slide-to="2")
+    div.carousel-inner(role="listbox")
+        div.item.active
+            img(src="img/one.png")
+        div.item
+            img(src="img/surf_banner.jpg")
+        div.item
+            img(src="img/Carve-4WEB-02.jpg")
+    a.left.carousel-control(href="#carousel", role="button", data-slide="prev")
+        span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+    a.right.carousel-control(href="#carousel", role="button", data-slide="next")
+        span.glyphicon.glyphicon-chevron-right(aria-hidden="true")

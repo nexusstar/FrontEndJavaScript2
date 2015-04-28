@@ -1,0 +1,17 @@
+{
+  "name": "StudentsCRUD",
+  "version": "0.0.1",
+  "description": "Student CRUD task",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "CRUD"
+  ],
+  "author": "NexusStar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
