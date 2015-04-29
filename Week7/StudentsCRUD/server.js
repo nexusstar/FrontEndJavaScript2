@@ -61,12 +61,12 @@ var students =[
 
 // collection endpoints
 // get all users
-app.get('/students', function(req, res){
+app.get('/api/students', function(req, res){
     res.jsonp(students);
 });
 
 // post new student to the collection
-app.post('/students', function(req, res){
+app.post('/api/students', function(req, res){
     // req.body contains the incoming fields and values
     var _id = req.body.id;
     var _name = req.body.name;
@@ -90,9 +90,7 @@ app.post('/students', function(req, res){
 
 
 // document endpoints
-// get info about user by id
-// for eg: /users/john-doe
-app.get('/students/:id', function(req, res){
+app.get('/api/students/:id', function(req, res){
     // get the id from the params
     var id = req.params.id;
 
@@ -104,35 +102,44 @@ app.get('/students/:id', function(req, res){
     }
 });
 
-// put an updated version of a user by id :TODO not implemented
-app.put('/students/:id', function(req, res){
+// put an updated version of a user by id
+app.put('/api/students/:id', function(req, res){
     // get the id from the params
     var id = req.params.id;
 
     if(studentExist(id)){
+        var stIndex = studenIndex(students, 'id', id);
 
+        // update the info from the body if passed or use the existing one
+        students[stIndex].name  =  req.body.name || students[stIndex].name;
+        students[stIndex].email  =  req.body.email || students[stIndex].email;
+        students[stIndex].classes  =  req.body.classes || students[stIndex].classes;
+        students[stIndex].gitRepo  =  req.body.gitRepo || students[stIndex].gitRepo;
+
+        res.jsonp({
+            msg: 'user data updated',
+            data: students[stIndex]
+        });
+
+    }else {
+        res.jsonp('student ' + id + ' does not exist!');
     }
-    // update the info from the body if passed or use the existing one
-    users[id].name = req.body.name || users[id].name;
-    users[id].email = req.body.email || users[id].email;
 
-    res.jsonp({
-        msg: 'user data updated',
-        data: users[id]
-    });
 });
 
 // delete an existing user by id
-app.delete('/students/:id', function(req, res){
+app.delete('/api/students/:id', function(req, res){
     var id = req.params.id;
 
     if(studentExist(students, 'id', id)){
         delete(students[getStudentIndex(students, 'id', id )]);
-        res.jsonp('student '+id+' successfully deleted!' + getStudentIndex(students, 'id', id ));
+        res.jsonp('student ' + id + ' successfully deleted!');
     } else {
-        res.jsonp('student '+id+' does not exist!');
+        res.jsonp('student ' + id + ' does not exist!');
     }
 });
+
+
 
 var studentExist = function(array, attr, value){
     for(var i = 0; i< array.length; i++){

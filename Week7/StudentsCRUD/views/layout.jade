@@ -1,7 +1,12 @@
+doctype
 html
    head
       title= title
-      link(href="/style.css", rel="stylesheet")
+      link(href="/lib/bootstrap/dist/css/bootstrap.css", rel="stylesheet")
+      link(href="/css/style.css", rel="stylesheet")
    body
       block content
       block footer
+      script(src='/lib/jquery/dist/jquery.js')
+      script(src='/lib/bootstrap/dist/js/bootstrap.js')
+      script(src='/js/students.js')

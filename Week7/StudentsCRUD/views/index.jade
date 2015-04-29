@@ -3,13 +3,21 @@
 
 extends layout
 block content
-   ul
-      li Visit the <a href="/stu">users</a> page
-      li Visit the <a href="/posts">posts</a> page
+   .container
+      h1.text-center Students
+      hr
+      table.table.table-striped
+         thead
+            tr.text-center
+               th ID
+               th Name
+               th E-mail
+               th Classes
+               th git Repo
+         tbody
+
 block footer
    footer.footer
-   div.container
-      div.col-md-4 footer content 1
-      div.col-md-4 footer content 2
-      div.col-md-4 footer content 3
-   script(src='/lib/jquery/dist/jquery.js')
+      div.container
+         div.col-md-12 footer content
+
