@@ -1,0 +1,22 @@
+{
+  "name": "StudentsCRUD",
+  "version": "0.0.0",
+  "authors": [
+    "NexusStar"
+  ],
+  "description": "Student CRUD",
+  "main": "server.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.4"
+  }
+}
