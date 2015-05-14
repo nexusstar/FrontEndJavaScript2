@@ -1,0 +1,16 @@
+#addStudent{
+		margin:1em 0;
+}
+
+#addStudent .form-group{
+	margin: 0.5em 1em;
+}
+#addStudent .form-group label{
+	margin-right: 1em;
+}
+#addStudent .form-group input{
+	width: 100%;
+}
+#addStudent button[type="submit"]{
+	
+}

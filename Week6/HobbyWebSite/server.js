@@ -14,6 +14,7 @@ app.get('/', function(req,res){
     res.render('index')
 });
 
-app.listen(3000, function(){
-    console.log('Example app started');
+// listen for requests
+var server = app.listen(3000, function() {
+    console.log('Listening on port %d', server.address().port);
 });

@@ -1,0 +1,37 @@
+.post {
+    clear: both;
+    position: relative;
+    min-height: 156px;
+    margin-bottom: 0.857143em;
+    border-bottom: 0.0714286em solid #D3D3D3;
+    border-color: #D3D3D3;
+	
+	.content{
+	padding-left:34.857142857143%;
+	}
+	
+	.date {
+	    display: inline-block;
+	    padding: 0px 10px;
+	    color: #FFF;
+	    background: none repeat scroll 0% 0% #7F7F7F;
+	    font-weight: bold;
+	    font-size: 0.857143em;
+	    line-height: 2em;
+	    text-transform: lowercase;
+	    border-radius: 2px;
+	}
+	
+	.media {
+		position:absolute;
+		top:0;
+		left:0;
+		width:31.428571428571%;
+		margin:0;
+		padding:0;
+		}
+		
+		&:hover{
+			box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+		}
+}

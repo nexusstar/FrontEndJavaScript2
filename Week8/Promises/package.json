@@ -1,0 +1,14 @@
+{
+  "name": "Promises",
+  "version": "1.0.0",
+  "description": "Promises Task",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "NexusStar",
+  "license": "ISC",
+  "dependencies": {
+    "q": "^1.3.0"
+  }
+}
