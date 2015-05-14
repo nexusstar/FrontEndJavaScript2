@@ -1,0 +1,47 @@
+//
+   Created by nexusstar on 15-4-28.
+
+extends layout
+block content
+   .container
+      h1.text-center Students
+      hr
+<<<<<<< HEAD
+      table#student-list.table.table-striped
+=======
+      button#load.btn.btn-default Load Data
+      //input form
+      form#addStudent.form-inline
+         div.form-group.col-md-4
+            label(for="userID") ID
+            input#userID(type="text", class="form-control", placeholder="id")
+         div.form-group.col-md-4
+            label(for="userName") Name
+            input#userName(type="text", class="form-control", placeholder="name")
+         div.form-group.col-md-4
+            label(for="userEmail") E-mail
+            input#userEmail(type="email", class="form-control", placeholder="email")
+         div.form-group.col-md-4
+            label(for="userClasses") Classes
+            input#userClasses(type="text", class="form-control", placeholder="classes")
+         div.form-group.col-md-4
+            label(for="gitRepo") git Repo
+            input#gitRepo(type="text", class="form-control", placeholder="gitRepo")
+         button#update.btn.btn-default( type="submit" ) Add Student
+            
+      table#tblData.table.table-striped
+>>>>>>> cefa41f083ee2d3a63e6283f979c3061d25eaa5f
+         thead
+            tr.text-center
+               th ID
+               th Name
+               th E-mail
+               th Classes
+               th git Repo
+         tbody
+
+block footer
+   footer.footer
+      div.container
+         div.col-md-12 footer content
+
