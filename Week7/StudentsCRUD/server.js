@@ -31,7 +31,8 @@ app.get('/', function (req, res) {
 
 // listen for requests
 var server = app.listen(1337, function() {
-    console.log('Listening on port %d', server.address().port);
+    console.log(app.settings);
+    console.log('Listening on port %d:%s', server.address().port, app.settings.env);
 });
 
 // this will serve as our resource on the server
