@@ -1,5 +1,6 @@
 # Directory-based project format:
 .idea/
+.settings
 
 # Ignore Node & Bower
 ###################

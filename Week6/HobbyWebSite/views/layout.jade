@@ -2,6 +2,8 @@
 doctype html
 html
     head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
         block title
             title Hobby WebSite
         link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
@@ -9,25 +11,16 @@ html
     body
         header#navbar.navbar-default.navbar-fixed-top
             div.container
-                div.logo WebsiteLogo
-                nav
                 block headerNav
-                    ul.nav.navbar-nav
-                        li
-                            a(href='#') Home
-                        li
-                            a(href='#') Link
-                        li
-                            a(href='#') Link
-
-        block slider
-            include  ./slider.jade
-        block content
-            div.main-container
-            div.container
-
-                img(src="img/one.png")
-                p MainContainer text
+                    include ./header.jade
+        div#highligter            
+            block slider
+                div.container
+                    include  ./slider.jade
+        div#main-content        
+            block content
+            block sidebar
+            
         block footer
             footer.footer
             div.container

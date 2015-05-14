@@ -1,0 +1,14 @@
+{
+  "name": "Async_Hangman",
+  "version": "1.0.0",
+  "description": "Async Hangman",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "NexusStar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
