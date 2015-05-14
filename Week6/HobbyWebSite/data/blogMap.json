@@ -1,0 +1,24 @@
+{
+	"collections":{
+		"articles":{
+			"model": "Article",
+			"schema":{
+				"tite": { "type": "String", "required": true, "minLength": 1, "maxLength": 5, "unique": true },
+				"dateCreated": { "type": "Date", "default": "Date.now" },
+				"image": "String",
+				"body":"String"
+			}
+		}
+	},
+	"routes": {
+		"api" : {
+			"_meta": {
+				"virtual": true,
+				"crud": true,
+				"contentType": "json"
+			},
+			"articles": {}
+		}
+	}
+
+}

@@ -1,0 +1,30 @@
+{
+  "name": "HobbyWebSite",
+  "version": "1.0.0",
+  "authors": [
+    "NexusStar"
+  ],
+  "description": "HobyWebSite HackBulgaria task",
+  "main": "server.js",
+  "keywords": [
+    "Node",
+    "Express",
+    "Jade",
+    "Bootstrap"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.4",
+    "fontawesome": "~4.3.0",
+    "q": "1.x",
+    "jade": "~1.9.2"
+  }
+}

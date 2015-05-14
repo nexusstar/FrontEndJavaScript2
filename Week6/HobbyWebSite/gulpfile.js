@@ -24,8 +24,8 @@ gulp.task('fontawesome', function() {
     log(colors.red('fonts'));
 
     return gulp
-        .src(paths.fontawesome)
-        .pipe(gulp.dest('fonts'));
+        .src('./lib/fontawesome/fonts/**/*.*')
+        .pipe(gulp.dest('./public/fonts'));
 });
 
 /**
@@ -45,7 +45,7 @@ gulp.task('sass', function () {
  */
 
 gulp.task('watch', function(){
-    log(colors.red('Watching files'));
+    log(colors.red('## Watching files ##'));
     var sass = 'scss/**/*.scss';
 
     gulp
