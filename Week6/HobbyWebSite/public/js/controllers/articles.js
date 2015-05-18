@@ -9,11 +9,10 @@ var BlogCtrl = (function(){
 			var data = {
 				articles: result.list
 			};
-			console.log
+			
 			return helpers.displayWithJade(container, tplName, data);	
-		})
-		
-	}
+		});	
+	};
 	
 	var remove = function(id){
 		blogRes.delete(id).then(function(){
@@ -48,9 +47,13 @@ var BlogCtrl = (function(){
 }
 
 var init = function(){
-
-		return remove(55592387b46f8b4935a9e761);
-	}
+	
+	$("#content").on("submit", "#mags-form",function(event){
+			var data = helpers.getDataFromForm($(this));
+			save(data);
+			event.preventDefault();
+		})
+		
 
 	return {
 		list: list,

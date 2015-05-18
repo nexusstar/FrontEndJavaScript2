@@ -13,13 +13,14 @@ html
             div.container
                 block headerNav
                     include ./header.jade
-        div#highligter            
+        #highligter            
             block slider
                 div.container
                     include  ./slider.jade
-        div#main-content        
-            block content
-            block sidebar
+        #content        
+            //block content
+            #blog-posts.container
+            //block sidebar
             
         block footer
             footer.footer

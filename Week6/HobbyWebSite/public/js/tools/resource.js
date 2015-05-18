@@ -16,7 +16,7 @@ Resource.prototype.query = function(queryParams) {
 
 Resource.prototype.create = function(data) {
 	return Q($.ajax({
-	    url: this.url, // api endpoint
+	    url: this.url, 			// api endpoint
 	    method: "post",          // method
 	    data: data,
 	    dataType: "json"        // data type

@@ -1,10 +1,26 @@
 div.row
+	div.col-md-4
+		form.well#mags-form
+			.form-group
+				label Title
+				input.form-control(name="title", type="text")
+			.form-group
+				label Date Created
+				input.form-control(name="dateCreated", type="date")
+			.form-group
+				label Media
+				input.form-control(name="media", type="text")
+			.form-group
+				label Summary text
+				input.form-control(name="body", type="textarea")
+			input(type="hidden", name="_id", value="")
+			button.btn.btn-success(type="submit") Save
 	div.col-md-8
 		each item in articles
-			.post
+			.post(data-item=item._id)
 				.content
-					.date item.dateCreated
-					h3.entry-title item.tite
-					p item.body
+					.date= item.dateCreated
+					h3.entry-title= item.title
+					p= item.body
 				.media
 					img(src= item.image)
