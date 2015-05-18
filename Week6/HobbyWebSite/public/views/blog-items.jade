@@ -1,0 +1,10 @@
+div.row
+	div.col-md-8
+		each item in articles
+			.post
+				.content
+					.date item.dateCreated
+					h3.entry-title item.tite
+					p item.body
+				.media
+					img(src= item.image)
