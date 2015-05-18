@@ -3,10 +3,10 @@
 		"articles":{
 			"model": "Article",
 			"schema":{
-				"tite": { "type": "String", "required": true, "minLength": 1, "maxLength": 5, "unique": true },
+				"title": { "type": "String", "required": false, "minLength": 1, "maxLength": 5},
 				"dateCreated": { "type": "Date", "default": "Date.now" },
 				"image": "String",
-				"body":"String"
+				"body": "String"
 			}
 		}
 	},
