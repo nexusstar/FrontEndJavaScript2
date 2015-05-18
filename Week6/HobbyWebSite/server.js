@@ -43,6 +43,7 @@ app.get('/', function(req,res){
 restify.initRoutes(app,blogMap,{},db);
 
 // listen for requests
-var server = app.listen(3000, function() {
-	console.log('Listening on port %d', server.address().port);
+var server = app.listen(3000, 'localhost');
+server.on('listening', function() {
+    console.log('Server listen on port %s at %s', server.address().port, server.address().address);
 });

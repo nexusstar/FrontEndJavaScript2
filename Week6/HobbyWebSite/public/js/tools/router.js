@@ -5,7 +5,7 @@ var Router = (function(){
 
 	var addRoute = function(route){
 		routes.push(route)
-	}
+	};
 
 	var init = function(){
 		$(window).on("hashchange",function(){
@@ -15,7 +15,7 @@ var Router = (function(){
 			 	if(route.url == url){
 			 		route.callback();
 			 	}
-			 })
+			 });
 		});
 
 		// trigger default route's callback
@@ -23,12 +23,12 @@ var Router = (function(){
 			if(route.default === true){
 				route.callback();
 			}
-		})
-	}
+		});
+	};
 
 	return {
 		addRoute: addRoute,
 		init: init
-	}
+	};
 
 })()
