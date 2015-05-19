@@ -14,7 +14,9 @@ var helpers = function(){
 
 	}
 	
-	var getDataFromForm = function(form){
+	var getDataFromForm = function(form) {
+		
+		console.log(form);
 
 		var formArray = form.serializeArray();
 
@@ -23,7 +25,6 @@ var helpers = function(){
 		formArray.forEach(function(field){
 			data[field.name] = field.value;
 		})
-		console.log(data);
 		return data;
 	}
 

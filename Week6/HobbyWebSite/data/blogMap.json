@@ -5,7 +5,7 @@
 			"schema":{
 				"title": "String",
 				"dateCreated": { "type": "Date", "default": "Date.now" },
-				"image": "String",
+				"image": {"type": "String", "default":"http://lorempixel.com/g/220/140/"}, 
 				"body": "String"
 			}
 		}

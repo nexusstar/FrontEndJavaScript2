@@ -1,6 +1,6 @@
 div.row
 	div.col-md-4
-		form.well#mags-form
+		form.well#blogs-form
 			.form-group
 				label Title
 				input.form-control(name="title", type="text")
@@ -9,12 +9,12 @@ div.row
 				input.form-control(name="dateCreated", type="date")
 			.form-group
 				label Media
-				input.form-control(name="media", type="text")
+				input.form-control(name="image", type="text")
 			.form-group
 				label Summary text
 				input.form-control(name="body", type="textarea")
 			input(type="hidden", name="_id", value="")
-			button.btn.btn-success(type="submit") Save
+			button.btn.btn-primary(type="submit") Save
 	div.col-md-8
 		each item in articles
 			.post(data-item=item._id)
@@ -23,6 +23,6 @@ div.row
 					h3.entry-title= item.title
 					p= item.body
 				.media
-					img(src= item.image)
+					img(src= "" + item.image)
 				a.btn.btn-primary.action-edit(data-id=item._id) edit
 				a.btn.btn-danger.action-delete(data-id=item._id) delete
