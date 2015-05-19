@@ -3,7 +3,7 @@
 		"articles":{
 			"model": "Article",
 			"schema":{
-				"title": { "type": "String", "required": false, "minLength": 1, "maxLength": 5},
+				"title": "String",
 				"dateCreated": { "type": "Date", "default": "Date.now" },
 				"image": "String",
 				"body": "String"

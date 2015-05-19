@@ -13,8 +13,22 @@ var helpers = function(){
 		})
 
 	}
+	
+	var getDataFromForm = function(form){
+
+		var formArray = form.serializeArray();
+
+		var data = {};
+
+		formArray.forEach(function(field){
+			data[field.name] = field.value;
+		})
+		console.log(data);
+		return data;
+	}
 
 	return {
+		getDataFromForm: getDataFromForm,
 		displayWithJade: displayWithJade
 	}
 

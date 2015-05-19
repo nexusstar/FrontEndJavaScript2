@@ -12,6 +12,7 @@ var BlogCtrl = (function(){
 			};
 			
 			return helpers.displayWithJade(container, tplName, data);	
+<<<<<<< HEAD
 		});
 		
 	};
@@ -23,6 +24,9 @@ var BlogCtrl = (function(){
 				formElement.val(data[field]);
 			})			
 		})
+=======
+		});	
+>>>>>>> 7e1f47da5c0c92fcaa08417a77ffb0e3ab10e198
 	};
 	
 	var remove = function(id){
@@ -34,6 +38,7 @@ var BlogCtrl = (function(){
 	
 	var init = function(){
 		
+<<<<<<< HEAD
 		$("#blog-posts").on("click", ".action-delete", function(){
 			var id = $(this).data("id");
 			remove(id);
@@ -42,6 +47,33 @@ var BlogCtrl = (function(){
 		return list();
 	}
 	
+=======
+		blogRes.update(id, data)
+			.then(function(){
+				console.log("Updated Successfuly!")
+				list();
+			})
+	// else create
+	} else {
+		blogRes.create(data)
+			.then(function(){
+				console.log("Created Successfuly!")
+				list();
+			})
+	}
+
+}
+
+var init = function(){
+	
+	$("#content").on("submit", "#mags-form",function(event){
+			var data = helpers.getDataFromForm($(this));
+			save(data);
+			event.preventDefault();
+		})
+		
+
+>>>>>>> 7e1f47da5c0c92fcaa08417a77ffb0e3ab10e198
 	return {
 		list: list,
 		remove: remove,
