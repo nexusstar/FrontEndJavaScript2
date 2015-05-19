@@ -7,11 +7,14 @@
 //Express app
 var express = require ('express'),
 	app = express();
+	app.locals.moment = require('moment');
 	
 var	fs = require('fs'),
 	mongoose = require('mongoose'),
 	bodyParser = require('body-parser'),
 	methodOverride = require('method-override');
+	
+	
 
 // Restify
 var restify = require('iblokz-node-restify'),

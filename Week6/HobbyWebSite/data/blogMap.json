@@ -4,8 +4,8 @@
 			"model": "Article",
 			"schema":{
 				"title": "String",
-				"dateCreated": { "type": "Date", "default": "Date.now" },
-				"image": {"type": "String", "default":"http://lorempixel.com/g/220/140/"}, 
+				"dateCreated": { "type": "Date", "default": "Date.now", "required": false },
+				"image": {"type": "String", "default":"http://www.robertoriccidesigns.com/equipment/wp-content/uploads/2015/05/11206515_908872569135764_2631908894612981356_o-220x140.jpg", "required": false}, 
 				"body": "String"
 			}
 		}

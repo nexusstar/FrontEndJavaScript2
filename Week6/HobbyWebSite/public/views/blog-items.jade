@@ -26,7 +26,7 @@ div.row
 					p= item.body
 				.media
 					img(src= "" + item.image, alt= item.title)
-				.actions
+				.actions.clearfix
 					a.btn.btn-danger.action-delete(data-id=item._id)
 						i.fa.fa-trash-o.fa-2x
 					| &nbsp;	
