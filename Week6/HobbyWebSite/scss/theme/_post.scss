@@ -6,6 +6,10 @@
     border-bottom: 0.0714286em solid #D3D3D3;
     border-color: #D3D3D3;
 	
+	.btn{
+		padding:2px 3px;
+	}
+	
 	.content{
 	padding-left:34.857142857143%;
 	}
@@ -34,4 +38,16 @@
 		&:hover{
 			box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 		}
+	.actions{
+		width:100%;
+		border-top:1px dashed #D3D3D3;
+		padding: 5px 15px;
+		.btn{
+			float:right;
+			
+			&:last-of-type{
+				margin-right:5px;
+			}
+		}
+	}
 }

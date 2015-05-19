@@ -18,32 +18,33 @@ var BlogCtrl = (function(){
 	}
 
 	var reset = function(){
-		$('#mags-form').trigger("reset");
-		$('#mags-form').find("[name=_id]").val("");
+		$('#blogs-form').trigger("reset");
+		$('#blogs-form').find("[name=_id]").val("");
 	}
 
 	var edit = function(id){
+		
 		blogRes.view(id).then(function(data){
 			Object.keys(data).forEach(function(field){
 				var formElement = $("[name="+field+"]");
 				formElement.val(data[field]);
 			})			
 		})
+		
 	}
 
-	var save = function(data){
-		
+	var save = function(data){		
 		var id = data._id || "";
 		delete(data._id);
 
 		// if id update
 		if(id !== ""){
-			
 			blogRes.update(id, data)
 				.then(function(){
 					console.log("Updated Successfuly!")
 					list();
 				})
+				
 		// else create
 		} else {
 			blogRes.create(data)
@@ -52,7 +53,6 @@ var BlogCtrl = (function(){
 					list();
 				})
 		}
-
 		
 	}
 
@@ -71,6 +71,16 @@ var BlogCtrl = (function(){
 			console.log(data);
 			save(data);
 			event.preventDefault();
+		})
+		
+		$("#blog-posts").on("click", ".action-delete",function(event){
+			var id = $(this).data("id");
+			remove(id);	
+		})
+		
+		$("#blog-posts").on("click", ".action-edit",function(event){
+			var id = $(this).data("id");
+			edit(id);
 		})
 
 		return list();

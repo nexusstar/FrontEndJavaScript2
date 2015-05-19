@@ -15,14 +15,21 @@ div.row
 				input.form-control(name="body", type="textarea")
 			input(type="hidden", name="_id", value="")
 			button.btn.btn-primary(type="submit") Save
+			| &nbsp;
+			button.btn.btn-danger.btn-reset Reset
 	div.col-md-8
 		each item in articles
-			.post(data-item=item._id)
+			.post(data-id=item._id)
 				.content
 					.date= item.dateCreated
 					h3.entry-title= item.title
 					p= item.body
 				.media
-					img(src= "" + item.image)
-				a.btn.btn-primary.action-edit(data-id=item._id) edit
-				a.btn.btn-danger.action-delete(data-id=item._id) delete
+					img(src= "" + item.image, alt= item.title)
+				.actions
+					a.btn.btn-danger.action-delete(data-id=item._id)
+						i.fa.fa-trash-o.fa-2x
+					| &nbsp;	
+					a.btn.btn-primary.action-edit(data-id=item._id)
+						i.fa.fa-pencil-square.fa-2x
+					
