@@ -1,23 +1,34 @@
 div.row
-	div.col-md-4
-		form.well#blogs-form
-			.form-group
-				label Title
-				input.form-control(name="title", type="text")
-			.form-group
-				label Date Created
-				input.form-control(name="dateCreated", type="date")
-			.form-group
-				label Media
-				input.form-control(name="image", type="text")
-			.form-group
-				label Summary text
-				input.form-control(name="body", type="textarea")
-			input(type="hidden", name="_id", value="")
-			button.btn.btn-primary(type="submit") Save
-			| &nbsp;
-			button.btn.btn-danger.btn-reset Reset
+	div#blogModal.modal.fade(role="dialog", aria-labelledby="blogModalLabel",aria-hidden="true")
+		div.modal-dialog
+			div.modal-content
+				div.modal-header
+					button.close(type="button", data-dismiss="modal", aria-label="Close")
+						span(aria-hidden="true") &times;
+					h4#blogModalLabel.modal-title Add Blog Content
+				div.modal-body				
+					form.well#blogs-form
+						.form-group
+							label Title
+							input.form-control(name="title", type="text")
+						.form-group
+							label Date Created
+							input.form-control(name="dateCreated", type="date")
+						.form-group
+							label Media
+							input.form-control(name="image", type="text")
+						.form-group
+							label Summary text
+							input.form-control(name="body", type="textarea")
+						input(type="hidden", name="_id", value="")
+						button.btn.btn-primary(type="submit") Save
+				.modal-footer
+					button.btn.btn-default(type="button", data-dismiss="modal") Close
 	div.col-md-8
+		//Button trigger modal
+		button.btn.btn-primary.btn-sm(type="button", data-toggle="modal", data-target="#blogModal") Add Content
+		| &nbsp;
+		button.btn.btn-danger.btn-sm.btn-reset(type="button") Reset
 		each item in articles
 			.post(data-id=item._id)
 				.content

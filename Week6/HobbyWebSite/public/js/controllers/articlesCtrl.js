@@ -66,11 +66,13 @@ var BlogCtrl = (function(){
 	var init = function(){
 
 		$("#blog-posts").on("submit", "#blogs-form",function(event){
-			console.log('form triggered');
+						
 			var data = helpers.getDataFromForm($(this));
-			console.log(data);
 			save(data);
+			
+			$("#blogModal").Modal.dismiss();
 			event.preventDefault();
+			
 		})
 		
 		$("#blog-posts").on("click", ".action-delete",function(event){
@@ -80,6 +82,9 @@ var BlogCtrl = (function(){
 		
 		$("#blog-posts").on("click", ".action-edit",function(event){
 			var id = $(this).data("id");
+			$("#blogModal").find("#blogModalLabel").text("Update Blog Content");
+			$('#blogModal').find(":submit").text("Update");
+			$("#blogModal").modal('show');
 			edit(id);
 		})
 

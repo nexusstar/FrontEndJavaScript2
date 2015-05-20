@@ -6621,18 +6621,35 @@ button.close {
   content: "\f23a"; }
 
 body {
-  padding-top: 60px; }
+  padding-top: 80px; }
 
-#main-content {
+#navbar {
+  margin-bottom: 30px; }
+  #navbar .navbar {
+    background: rgba(65, 67, 69, 0.9);
+    margin-bottom: 0;
+    border-radius: 0; }
+  #navbar .navbar-nav {
+    padding-left: 90px; }
+    #navbar .navbar-nav a {
+      color: white;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 0.35); }
+      #navbar .navbar-nav a:hover {
+        color: rgba(10, 10, 10, 0.35); }
+
+#content {
   margin: 1em 0; }
 
-#logo {
-  float: left;
-  width: 50px;
-  height: 50px; }
-
 img {
-  max-width: 100%; }
+  min-width: 100%; }
+
+#logo {
+  position: absolute;
+  width: 70px;
+  left: 10px;
+  top: 10px; }
+  #logo img {
+    width: 100%; }
 
 .carousel-inner {
   width: 100%;
