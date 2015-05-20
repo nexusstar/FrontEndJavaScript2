@@ -27,8 +27,6 @@ div.row
 	div.col-md-8
 		//Button trigger modal
 		button.btn.btn-primary.btn-sm(type="button", data-toggle="modal", data-target="#blogModal") Add Content
-		| &nbsp;
-		button.btn.btn-danger.btn-sm.btn-reset(type="button") Reset
 		each item in articles
 			.post(data-id=item._id)
 				.content
@@ -42,5 +40,4 @@ div.row
 						i.fa.fa-trash-o.fa-2x
 					| &nbsp;	
 					a.btn.btn-primary.action-edit(data-id=item._id)
-						i.fa.fa-pencil-square.fa-2x
-					
+						i.fa.fa-pencil-square.fa-2x			
