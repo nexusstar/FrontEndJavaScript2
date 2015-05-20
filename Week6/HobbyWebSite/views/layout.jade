@@ -17,10 +17,13 @@ html
             block slider
                 div.container
                     include  ./slider.jade
-        #content        
-            //block content
-            #blog-posts.container
-            //block sidebar
+        #content
+            div.container
+                .row        
+                    //content
+                    #blog-posts
+                    //sidebar
+                    #sidebar
             
         block footer
             footer.footer
@@ -43,4 +46,5 @@ html
         
         //app
         script(src='/js/controllers/articlesCtrl.js')
+        script(src='/js/controllers/weatherCtrl.js')
         script(src='/js/init.js')

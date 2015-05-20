@@ -6632,16 +6632,16 @@ body {
   #navbar .navbar-nav {
     padding-left: 90px; }
     #navbar .navbar-nav a {
-      color: white;
+      color: #fff;
       text-shadow: 0 0 1px rgba(0, 0, 0, 0.35); }
       #navbar .navbar-nav a:hover {
-        color: rgba(10, 10, 10, 0.35); }
+        color: #a5a5a5; }
 
 #content {
   margin: 1em 0; }
 
 img {
-  min-width: 100%; }
+  max-width: 100%; }
 
 #logo {
   position: absolute;

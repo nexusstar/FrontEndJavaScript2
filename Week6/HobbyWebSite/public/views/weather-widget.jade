@@ -1,0 +1,12 @@
+div.col-md-4
+	div.weatherWidget
+		h4 Today
+		div.weather
+			img(src= current.weatherIconUrl[0].value)
+			span.temp= current.temp_C
+			span.feels_line= current.FeelsLikeC
+		h4 Forecast
+		each item in forecast
+			div= item.date
+			div= "Min temp: " + item.mintempC
+			div= "Max temp: " + item.maxtempC
