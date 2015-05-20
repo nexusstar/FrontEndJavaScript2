@@ -1,0 +1,4 @@
+Added external api and moved creation form to modal dialog box.
+Need to style further weather widget and example post content
+Considerations:
+dinamicaly create request with changed parameters from some form
