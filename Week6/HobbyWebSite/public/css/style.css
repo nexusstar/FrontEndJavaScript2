@@ -6694,5 +6694,21 @@ img {
       .post .actions .btn:last-of-type {
         margin-right: 5px; }
 
+.weatherWidget {
+  padding: 6px 12px;
+  background-color: #eeeeee; }
+  .weatherWidget h4 {
+    padding: 10px 16px; }
+  .weatherWidget .weather {
+    background-color: #96B4E4;
+    margin: -12px;
+    padding: 6px 24px;
+    min-height: 70px; }
+    .weatherWidget .weather img {
+      float: left;
+      padding: 6px; }
+    .weatherWidget .weather .desc {
+      float: left; }
+
 
 /*# sourceMappingURL=maps/style.css.map */

@@ -1,5 +1,6 @@
 
 var WeatherCtrl = (function(){
+	
 	var apiParams = {
 	 "key": "d161cfcbf80800d2d76844bd9aa78",
 	 "format": "json",
@@ -13,7 +14,7 @@ var WeatherCtrl = (function(){
 	
 	var showWidget = function(){
 		return apiResource.query().then(function(result){
-			console.log(result.data.current_condition[0]);
+			
 			var container = $("#sidebar");
 			var tplName = "/views/weather-widget.jade";
 			var data = {

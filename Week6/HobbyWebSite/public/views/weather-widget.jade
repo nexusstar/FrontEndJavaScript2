@@ -3,8 +3,16 @@ div.col-md-4
 		h4 Today
 		div.weather
 			img(src= current.weatherIconUrl[0].value)
-			span.temp= current.temp_C
-			span.feels_line= current.FeelsLikeC
+			div.desc= current.weatherDesc[0].value
+			div.temp
+				span.temp= current.temp_C
+				span.feels_line= current.FeelsLikeC
+			div.wind
+				span.wind= current.windspeedKmph + " Kmph"
+					i.fa.fa-flag
+				span.wind-direction= "Direction " + current.winddir16Point
+					i.fa.fa-compass
+					
 		h4 Forecast
 		each item in forecast
 			div= item.date
