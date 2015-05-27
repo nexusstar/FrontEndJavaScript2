@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>
+        NG todo app
+    </title>
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
+
+    <script src="http://code.angularjs.org/1.2.15/angular.js"></script>
+</head>
+<body data-ng-app="">
+    <div class="container" >
+        <h1 class="text-center">ToDo</h1>
+        <form ng-submit="todos.push(text)" data-ng-init="todos=[];">
+            <input type="text" ng-model="text" name="text" />            
+        </form>
+            <ul>
+               <li ng-repeat="todo in todos"> {{ todo }} 
+                   <button class="btn btn-sm" data-ng-click="delete(todos.splice($index,1))"><i class="fa fa-trash-o"></i></button>
+               </li>
+            </ul>
+    </div>
+    </p>
+</body>

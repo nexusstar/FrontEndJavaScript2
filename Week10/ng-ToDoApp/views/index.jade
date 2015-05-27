@@ -1,0 +1,24 @@
+doctype
+html(class='no-js')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+
+    title
+
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    link(rel='stylesheet', href='lib/bootstrap/dist/css/bootstrap.css')
+
+  body(ng-init="tasks=[]")
+    .container.text-center(ng-model="")
+      h1 ToDo Angular
+      form.form-inline
+        .form-group
+          input.form-control(type="text", placeholder="Something to do", ng-bind="task")
+        button.btn.btn-default(type="submit", placeholder="Something ToDo", ng-submit="tasks.push(task)") Add
+      div.col-md-12
+        div {{tasks}}
+
+    script(src="lib/angular/angular.min.js")
