@@ -1,0 +1,23 @@
+// weather widget
+.weatherWidget{
+	
+	padding:$padding-base-vertical $padding-base-horizontal;
+	background-color: $gray-lighter;
+	h4{
+		padding: $padding-large-vertical $padding-large-horizontal;
+	}
+	.weather{
+		background-color: #96B4E4;
+		margin: 0 -$padding-base-horizontal;
+		padding: $padding-base-vertical (2*$padding-base-horizontal);
+		min-height: 70px;
+		
+		img{
+			float:left;
+			padding:$padding-base-vertical;
+		}
+		.desc{
+			float:left;
+		}
+	}
+}
